@@ -379,6 +379,10 @@ class format_topcoll extends format_base {
                     'default' => get_config('format_topcoll', 'defaultlayoutcolumnorientation'),
                     'type' => PARAM_INT,
                 ),
+                'layouttheme' => array(
+                    'default' => get_config('format_topcoll', 'defaultlayouttheme'),
+                    'type' => PARAM_INT,
+                ),
                 'togglealignment' => array(
                     'default' => get_config('format_topcoll', 'defaulttogglealignment'),
                     'type' => PARAM_INT,
@@ -540,6 +544,17 @@ class format_topcoll extends format_base {
                               2 => new lang_string('columnhorizontal', 'format_topcoll')) // Default.
                     )
                 );
+                $courseformatoptionsedit['layouttheme'] = array(
+                    'label' => new lang_string('setlayouttheme', 'format_topcoll'),
+                    'help' => 'setlayouttheme',
+                    'help_component' => 'format_topcoll',
+                    'element_type' => 'select',
+                    'element_attributes' => array(
+                        array(1 => new lang_string('themetopcoll', 'format_topcoll'),
+                              2 => new lang_string('thememoonstones', 'format_topcoll'), // Default.
+                              3 => new lang_string('thememoonstonet', 'format_topcoll'))
+                    )
+                );
                 $courseformatoptionsedit['toggleiconposition'] = array(
                     'label' => new lang_string('settoggleiconposition', 'format_topcoll'),
                     'help' => 'settoggleiconposition',
@@ -569,6 +584,8 @@ class format_topcoll extends format_base {
                     array('label' => get_config('format_topcoll', 'defaultlayoutcolumns'), 'element_type' => 'hidden');
                 $courseformatoptionsedit['layoutcolumnorientation'] =
                     array('label' => get_config('format_topcoll', 'defaultlayoutcolumnorientation'), 'element_type' => 'hidden');
+                $courseformatoptionsedit['layouttheme'] =
+                    array('label' => get_config('format_topcoll', 'defualtlayouttheme'), 'element_type' => 'hidden');
                 $courseformatoptionsedit['toggleiconposition'] =
                     array('label' => get_config('format_topcoll', 'defaulttoggleiconposition'), 'element_type' => 'hidden');
                 $courseformatoptionsedit['showsectionsummary'] =
@@ -1061,6 +1078,7 @@ class format_topcoll extends format_base {
             $updatedata['layoutstructure'] = get_config('format_topcoll', 'defaultlayoutstructure');
             $updatedata['layoutcolumns'] = get_config('format_topcoll', 'defaultlayoutcolumns');
             $updatedata['layoutcolumnorientation'] = get_config('format_topcoll', 'defaultlayoutcolumnorientation');
+            $updatedata['layouttheme'] = get_config('format_topcoll', 'defaultlayouttheme');
             $updatedata['toggleiconposition'] = get_config('format_topcoll', 'defaulttoggleiconposition');
             $updatedata['showsectionsummary'] = get_config('format_topcoll', 'defaultshowsectionsummary');
             $updatelayout = true;

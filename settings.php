@@ -139,6 +139,18 @@ if ($ADMIN->fulltree) {
     );
     $settings->add(new admin_setting_configselect($name, $title, $description, $default, $choices));
 
+    // Default themelayout - 1 = topcoll , 2 = moonstone vertical, 3 = moonstone horizontal.
+    $name = 'format_topcoll/defaultlayouttheme';
+    $title = get_string('defaultlayouttheme', 'format_topcoll');
+    $description = get_string('defaultlayouttheme_desc', 'format_topcoll');
+    $default = 2;
+    $choices = array(
+        1 => new lang_string('themetopcoll', 'format_topcoll'),
+        2 => new lang_string('thememoonstones', 'format_topcoll'), // Default.
+        3 => new lang_string('thememoonstonet', 'format_topcoll')
+    );
+    $settings->add(new admin_setting_configselect($name, $title, $description, $default, $choices));
+
     // Default toggle foreground colour in hexadecimal RGB with preceding '#'.
     $name = 'format_topcoll/defaulttgfgcolour';
     $title = get_string('defaulttgfgcolour', 'format_topcoll');
